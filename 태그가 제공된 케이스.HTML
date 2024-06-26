@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .banner{
+            overflow: hidden;
+        }
+        .banner ul{/* 스와이퍼 wraper*/
+            display: flex;
+            width: calc(100vw * 3);
+        }
+        .banner li{ /* 스와이퍼 슬라이드*/
+            width:100vw;
+            height:600px;
+        }
+        .banner li:nth-child(1){
+            background-color: red;
+        }
+        .banner li:nth-child(2){
+            background-color: yellow;
+        }
+        .banner li:nth-child(3){
+            background-color: green;
+        }
+        .btns{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="btns">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" 
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+     crossorigin="anonymous">
+    </script>
+    <script>
+        $(".btns button").each(function(){
+            $(this).on('click',function(){
+                alert($(this).index())
+            })
+        });
+    </script>
+</body>
+</html>
