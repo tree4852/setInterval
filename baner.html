@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       .bannerwrap{
+         height: 550px;
+         transition: 0.5s;
+         position: relative;
+       }
+       .bannerwrap button{
+        display: block;
+        position: absolute;
+        width: 35px;height: 35px;
+        top:0; bottom:0; left:0; right:0;
+        margin: auto;
+       }
+    </style>
+</head>
+<body>
+    <h2>배경으로 변경</h2>
+    <div class="bannerwrap">
+                 <buttton>Stop</buttton>
+    </div>
+
+    <h2>이미지태그의 속성변경</h2>
+    <img src="./banner/0.png" id="bannerimg" >
+    <script src="./setInterval.js"></script>    
+</body>
+</html>
