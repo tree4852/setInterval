@@ -18,6 +18,9 @@
         <li>텍스트</li>
         <li>텍스트</li>
     </ul>
+    
+
+    <a href="" id="mypage">마이페이지</a>
 
 
 
@@ -37,6 +40,15 @@
             const licls = $(this).index() === totall - 1 ? "boder-bottom" : "boder-bottom mb-3";
             $(this).add(licls);
         })
+        const mb = "회원";
+        // const pagelink =  mb == "회원" ? "login.html" : "mypage.html"; //긍정표현법
+        const pagelink =  mb =! "회원" ? "mypage.html" : "login.html"; //부정표현법
+        
+
+        $("#mypage").attr('href',pagelink);
+
+        
+
     </script>
     
 </body>
