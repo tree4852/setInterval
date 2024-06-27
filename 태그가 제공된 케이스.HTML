@@ -14,7 +14,7 @@
         }
         .banner ul{/* 스와이퍼 wraper*/
             display: flex;
-            width: calc(100vw * 3);
+            transition: 0.5s;
         }
         .banner li{ /* 스와이퍼 슬라이드*/
             width:100vw;
@@ -58,10 +58,25 @@
         //         alert($(this).index())
         //     })
         // });
+        
+//index(), width() , heigth (), $(this),attr() 제이쿼리의 핵심 매서드 
+
+        const aniw = $(document).width(); //숫자
+        // const aniw = $(document).css('width'); 문자
+        //const intermargin = perseInt($(".gnb").css("margin-left"));  perseInt를 사용하여 문자를 숫자로 바꿀수있음
+
+
+        const lis = $(".banner li").length; //li의 갯수만큼
+        
+        $(".banner li").width(aniw); //body 너비만큼
+        $(".banner ul").width(aniw * lis)
+
+        // li의갯수를 고려해 ul의 넓이를 조절 document 와 window는 "" ''를 안쓴다
 
         $(".btns button").on('click' , function(){
             
-                alert($(this).index())
+                // alert($(this).index())
+                $(".banner ul").css("marginLeft",-aniw *$(this).index())
             
         });
     </script>
