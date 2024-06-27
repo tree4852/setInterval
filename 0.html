@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+    }
+</style>
+<body>
+    <ul class="notice">
+        <li>텍스트</li>
+        <li>텍스트</li>
+        <li>텍스트</li>
+        <li>텍스트</li>
+        <li>텍스트</li>
+    </ul>
+
+
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" 
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+     crossorigin="anonymous">
+
+    </script>
+
+    <script>
+        //li가 5개인 태그에 마지막 li만  라는 ㅋㄹ래스 를 삽입 하고싶음
+        //li모두 mb-3 단 마지막 li만 mb-3 넣지않음 ,li모두 
+        const totall = $(".notice li").length;
+
+        $(".notice li").each(function(){
+
+            const licls = $(this).index() === totall - 1 ? "boder-bottom" : "boder-bottom mb-3";
+            $(this).add(licls);
+        })
+    </script>
+    
+</body>
+</html>
