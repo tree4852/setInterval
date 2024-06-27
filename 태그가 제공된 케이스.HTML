@@ -32,20 +32,44 @@
         .btns{
             display: flex;
             justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .btns button{
+            border: 0;
+            
+            
+            display: block;
+            color: white;
+            height: 20px;
+            padding: 0 15px;
+            background-color: #666;
+            margin: 0 10px;
+            cursor: pointer;
+
+        }
+        .btns button.on{
+            background-color: red;
+            
+            transition: 0.5s;
+            cursor: default; 
+            /* 커서 원래값으로  */
         }
     </style>
 </head>
 <body>
     <div class="banner">
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+        <!-- 스와이퍼 wraper -->
+        <ul> 
+            <!-- 스와이퍼 슬라이드 -->
+            <li data-msg="초특가이벤트"></li>
+            <li data-msg="멤버쉽안내"></li>
+            <li data-msg="구독신청"></li>
         </ul>
         <div class="btns">
-            <button>1</button>
+            <!-- <button class="on">1</button>
             <button>2</button>
-            <button>3</button>
+            <button>3</button> -->
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" 
@@ -67,16 +91,46 @@
 
 
         const lis = $(".banner li").length; //li의 갯수만큼
-        
+
         $(".banner li").width(aniw); //body 너비만큼
         $(".banner ul").width(aniw * lis)
 
         // li의갯수를 고려해 ul의 넓이를 조절 document 와 window는 "" ''를 안쓴다
 
+        let btnsbutton = "";
+        //each로 할때
+        // $(".banner li").each(function(idx, ele){
+        //     console.log(idx, ele); // 순번, 객체
+        //     btnsbutton +=`<button>${idx + 1}</button>`;
+        // })
+
+
+        //for로 할때
+        // for(let x =0; x < lis; x++){
+        //     btnsbutton +=`<button>${x + 1}</button>`;
+        // }
+
+        //each 가 필요할때
+        $(".banner li").each(function(idx, ele){
+           
+            btnsbutton +=`<button>${$(this).data("msg")}</button>`; //자바스크립트는 bataset 제이쿼리는 data가 매서드임
+        })
+
+
+    
+
+
+
+        $(".btns").html(btnsbutton);
+        $(".btns button").eq(0).addClass("on");
+
         $(".btns button").on('click' , function(){
             
                 // alert($(this).index())
                 $(".banner ul").css("marginLeft",-aniw *$(this).index())
+               
+                $(this).addClass("on").siblings().removeClass('on')
+                
             
         });
     </script>
