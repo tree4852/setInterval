@@ -18,9 +18,18 @@
         <li>텍스트</li>
         <li>텍스트</li>
     </ul>
+
+    <div class="navi">
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+    </div>
     
 
     <a href="" id="mypage">마이페이지</a>
+
+    <button id="changeText">Change Text</button>
+    <p id="text">Original Text</p>
 
 
 
@@ -47,7 +56,15 @@
 
         $("#mypage").attr('href',pagelink);
 
-        
+        $(document).ready(function() {
+            $("#changeText").on('click', function() {
+                $("#text").css("background-color", "yellow");
+                $("#text").text("Changed Text");
+            });
+        });
+         
+
+
 
     </script>
     
